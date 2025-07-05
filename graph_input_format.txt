@@ -1,0 +1,27 @@
+// Example prop format for the NodeGraph component
+const graphData = {
+  // Array of node objects
+  nodes: [
+    { id: "1", label: "Node 1" },
+    { id: "2", label: "Node 2" },
+    { id: "3", label: "Node 3" }
+  ],
+  // Array of edge objects
+  edges: [
+    { source: "1", target: "2", label: "Edge 1-2" },
+    { source: "2", target: "3", label: "Edge 2-3" },
+    { source: "3", target: "1", label: "Edge 3-1" }
+  ]
+};
+
+// Usage in parent component
+<NodeGraph 
+  nodes={graphData.nodes}
+  edges={graphData.edges}
+  directed={true}  // Set to false for undirected graph
+  width={800}      // Optional: Default is 600
+  height={500}     // Optional: Default is 400
+  nodeRadius={25}  // Optional: Default is 20
+  onNodeClick={(node, index) => console.log("Node clicked:", node)}
+  onEdgeClick={(edge, index) => console.log("Edge clicked:", edge)}
+/>

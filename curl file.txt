@@ -1,0 +1,96 @@
+curl --location 'http://127.0.0.1:5002/health'
+
+curl --location 'http://127.0.0.1:5002/api/graph/nodes' \
+--data ''
+
+curl --location --request GET 'http://127.0.0.1:5002/api/graph/shortest-path' \
+--header 'Content-Type: application/json' \
+--data '{
+    "from":"taylorhunter0",
+    "to":"zcook1"
+}'
+
+curl --location --request GET 'http://127.0.0.1:5002/api/graph/connections' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "taylorhunter0",
+    "depth": 2
+}'
+
+curl --location 'http://127.0.0.1:5002/api/accounts' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name": "Janice"
+}'
+
+curl --location 'http://127.0.0.1:5002/api/accounts/follow' \
+--header 'Content-Type: application/json' \
+--data '{
+    "follower":"taylorhunter0",
+    "followee":"zcook1"
+}'
+
+curl --location 'http://127.0.0.1:5002/api/accounts/unfollow' \
+--header 'Content-Type: application/json' \
+--data '{
+    "follower":"taylorhunter0",
+    "followee":"zcook1"
+}'
+
+curl --location 'http://127.0.0.1:5002/api/posts' \
+--header 'Content-Type: application/json' \
+--data '{
+    "post_id": "PID55",
+    "account_name":"taylorhunter0",
+    "content":"POST_Content"
+}'
+
+curl --location 'http://127.0.0.1:5002/api/posts/like' \
+--header 'Content-Type: application/json' \
+--data '{
+    "post_id": "PID55",
+    "account_name":"taylorhunter0"
+}'
+
+curl --location 'http://127.0.0.1:5002/api/posts/unlike' \
+--header 'Content-Type: application/json' \
+--data '{
+    "post_id": "PID55",
+    "account_name":"taylorhunter0"
+}'
+
+curl --location 'http://127.0.0.1:5002/api/accounts/taylorhunter0/posts'
+
+curl --location 'http://127.0.0.1:5002/api/accounts/taylorhunter0/similar'
+
+curl --location 'http://127.0.0.1:5002//api/accounts/taylorhunter0/recommended-posts'
+
+curl --location 'http://127.0.0.1:5002//api/analytics/pagerank'
+
+curl --location 'http://127.0.0.1:5003/api/convert' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query": "who follows taylorhunter0?"
+}'
+
+curl --location 'http://127.0.0.1:5003/api/query' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query": "who follows taylorhunter0?"
+}'
+
+curl --location 'http://127.0.0.1:5003/api/profile' \
+--header 'Content-Type: application/json' \
+--data '{
+    "query": "who follows taylorhunter0?"
+}'
+
+curl --location 'http://localhost:5002/api/analytics/statistics'
+
+curl --location --request GET 'http://localhost:5002/api/analytics/common-connections' \
+--header 'Content-Type: application/json' \
+--data '{
+    "account1": "taylorhunter0",
+    "account2": "zcook1"
+}'
+
